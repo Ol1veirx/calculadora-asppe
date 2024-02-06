@@ -1,0 +1,45 @@
+﻿@model ASPPE___SOMA.Models.Equipes
+
+@{
+	ViewData["Title"] = "Somar";
+}
+
+<h2>Somar Pontos para Equipe: @Model.Nome</h2>
+
+<form asp-action="Somar" method="post">
+    <div class="card card-body">
+
+        <div class="form-group">
+            <label asp-for="Quantidade">Quantidade atual:</label>
+            <input asp-for="Quantidade" class="form-control" readonly />
+            <span asp-validation-for="Quantidade" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Peso">Peso atual:</label>
+            <input asp-for="Peso" class="form-control" readonly />
+            <span asp-validation-for="Peso" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Pontos">Pontos atuais:</label>
+            <input asp-for="Pontos" class="form-control" readonly />
+            <span asp-validation-for="Pontos" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="valorSomarQuantidade">Quantidade a ser somada:</label>
+        <input type="number" id="valorSomarQuantidade" name="valorSomarQuantidade" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="valorSomarPeso">Peso a ser somado:</label>
+        <input type="number" id="valorSomarPeso" name="valorSomarPeso" step="any" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="valorSomarPontos">Pontos a serem somados:</label>
+        <input type="number" id="valorSomarPontos" name="valorSomarPontos" step="any" class="form-control" />
+    </div>
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-primary">Somar</button>
+    <div class="btn btn-secondary">
+        <a asp-action="Index">Back to List</a>
+    </div>
+</form>
